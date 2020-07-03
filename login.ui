@@ -54,6 +54,9 @@ border-bottom:1px solid #000000</string>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
     <property name="placeholderText">
      <string>Password</string>
     </property>
@@ -93,6 +96,9 @@ border-bottom:1px solid #000000</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
     <property name="placeholderText">
      <string>Username</string>

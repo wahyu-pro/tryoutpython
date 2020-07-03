@@ -1,0 +1,26 @@
+[
+    {
+        "nama": "Ice Tea",
+        "harga": "Rp. 15000",
+        "deskripsi": "Teh dingin bikin merinding", 
+        "category": "teh"
+    },
+    {
+        "nama": "Hot Tea",
+        "harga": "Rp. 12000",
+        "deskripsi": "Teh panas bikin mengganas",
+        "category": "teh"
+    },
+    {
+        "nama": "Avocado Juice",
+        "harga": "Rp. 20000",
+        "deskripsi": "Alpuket bikin muka pucet",
+        "category": "juice"
+    },
+    {
+        "nama": "Mango Juice",
+        "harga": "Rp. 20000",
+        "deskripsi": "Mangga bikin gegana",
+        "category": "juice"
+    }
+]

@@ -61,7 +61,7 @@
      <string>Cafe Sederhana</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnAll">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -131,7 +131,7 @@ border-radius:5px;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="btnJuice">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -147,10 +147,10 @@ color:rgb(255, 255, 255);
 border-radius:5px;</string>
     </property>
     <property name="text">
-     <string>Kopi</string>
+     <string>Juice</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="btnTeh">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -167,25 +167,6 @@ border-radius:5px;</string>
     </property>
     <property name="text">
      <string>Teh</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>30</y>
-      <width>51</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(0, 85, 255);
-border:1px solid rgb(255, 255, 255);
-color:rgb(255, 255, 255);
-border-radius:5px;</string>
-    </property>
-    <property name="text">
-     <string>Snack</string>
     </property>
    </widget>
   </widget>

@@ -83,7 +83,7 @@ border-radius:3px;</string>
      <string>Rp. 150000</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="cartProd">
     <property name="geometry">
      <rect>
       <x>20</x>

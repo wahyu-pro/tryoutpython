@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import *
 from PyQt5.Qt import Qt
 from PyQt5 import uic
-import res
+from PyQt5.QtGui import QPixmap
+import res, json
+from PyQt5 import QtCore
 
 class Login(QWidget):
     def __init__(self):
@@ -14,36 +16,67 @@ class MenuBar(QWidget):
         uic.loadUi("menubar.ui", self)
 
 class Item(QWidget):
+    procStart = QtCore.pyqtSignal(dict)
     def __init__(self):
         super(Item, self).__init__()
-        uic.loadUi("item.ui", self)
+        uic.loadUi("product.ui", self)
+    #     self.data = Dashboard()
+
+    # @QtCore.pyqtSlot()
+    # def on_button_clicked(self, data):
+    #     self.procStart.emit(self.data.getdata())
+
 
 class Cart(QWidget):
     def __init__(self):
         super(Cart, self).__init__()
         uic.loadUi("cart.ui", self)
+        label = self.findChild(QLabel, "label_3")
+        label.setText("wahyu")
+    #     self.dataProd = []
+
+    # @QtCore.pyqtSlot(dict)
+    # def on_item_procstart(self, data):
+    #     self.dataProd.append(data)
 
 
 class Dashboard(QMainWindow):
     def __init__(self):
         super(Dashboard, self).__init__()
         self.menu = MenuBar()
-        self.item = Item()
         self.cart = Cart()
+        self.dataProd = self.fetch()
         self.mainUi()
         self.setCentralWidget(self.vWidget)
 
+    def fetch(self):
+        with open('product.json', 'r') as product:
+            data = json.load(product)
+        return data
+
+
     def mainUi(self):
+        cover = ["download.jpg", "teahot.jpg", "alpukatjus.jpg", "mangga.jpg"]
+        # allBtn = self.menu.findChild(QPushButton, "btnAll")
+        # tehBtn = self.menu.findChild(QPushButton, "btnTeh")
+        dataProd = self.dataProd
         self.hLayout = QHBoxLayout()
-        self.hLayout.addWidget(self.item)
+        for x in range(len(dataProd)):
+            self.item = Item()
+            self.hLayout.addWidget(self.item)
+            pixmap = QPixmap("./Img/{}".format(cover[x]))
+            labelImg = self.item.findChild(QLabel, "labelImage")
+            labelImg.setPixmap(pixmap)
+            nama = self.item.findChild(QLabel, "namaProd")
+            nama.setText(dataProd[x]["nama"])
+            harga = self.item.findChild(QLabel, "priceIceTea")
+            harga.setText(dataProd[x]["harga"])
+            desk = self.item.findChild(QLabel, "deskLabel")
+            desk.setText(dataProd[x]["deskripsi"])
+            self.addToCart = {"nama": dataProd[x], "harga": dataProd[x]["harga"]}
+            self.item.btnAdd.clicked.connect(self.getdata)
+
         self.hLayout.addWidget(self.cart)
-        for x in range(3):
-            self.hLayout.addWidget(Item())
-            # for a in range(3):
-                # self. v_product = QVBoxLayout()
-                # self.v_product.addWidget(self.item)
-        # self.hLayout.setStretch(0, 1500)
-        # self.hLayout.setStretch(1, 300)
         self.hWidget = QWidget()
         self.hWidget.setLayout(self.hLayout)
 
@@ -56,11 +89,23 @@ class Dashboard(QMainWindow):
         self.vWidget = QWidget()
         self.vWidget.setLayout(self.vLayout)
 
+    def getdata(self):
+        return self.addToCart
+
+    # def ok(self):
+    #     print("Ok")
+
+
 class MainApp(QMainWindow):
     def __init__(self):
         super(MainApp, self).__init__()
         self.mainUi()
         self.mainLayout()
+
+        # self.product = Item()
+        # self.cart = Cart()
+
+        # self.product.procStart(self.cart.on_item_procstart)
 
 
     def mainUi(self):
