@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="img">
+    <file>Img/alpukatjus.jpg</file>
+    <file>Img/teahot.jpg</file>
+    <file>Img/jeruk.jpg</file>
+    <file>Img/mangga.jpg</file>
+    <file>Img/stroberi.jpg</file>
+    <file>Img/download.jpg</file>
+    <file>Img/icetea.png</file>
+  </qresource>
+</RCC>
