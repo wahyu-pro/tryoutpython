@@ -31,8 +31,8 @@ class Cart(QWidget):
     def __init__(self):
         super(Cart, self).__init__()
         uic.loadUi("cart.ui", self)
-        label = self.findChild(QLabel, "label_3")
-        label.setText("wahyu")
+        # label = self.findChild(QLabel, "label_3")
+        # label.setText("wahyu")
     #     self.dataProd = []
 
     # @QtCore.pyqtSlot(dict)
@@ -45,7 +45,7 @@ class Dashboard(QMainWindow):
         super(Dashboard, self).__init__()
         self.menu = MenuBar()
         self.cart = Cart()
-        self.dataProd = self.fetch()
+        self.dataProduk = self.fetch()
         self.mainUi()
         self.setCentralWidget(self.vWidget)
 
@@ -59,7 +59,8 @@ class Dashboard(QMainWindow):
         cover = ["download.jpg", "teahot.jpg", "alpukatjus.jpg", "mangga.jpg"]
         # allBtn = self.menu.findChild(QPushButton, "btnAll")
         # tehBtn = self.menu.findChild(QPushButton, "btnTeh")
-        dataProd = self.dataProd
+        # dataProd = list(filter(lambda a: a['category'] == 'teh', self.dataProduk))
+        dataProd = self.dataProduk
         self.hLayout = QHBoxLayout()
         for x in range(len(dataProd)):
             self.item = Item()
@@ -92,6 +93,7 @@ class Dashboard(QMainWindow):
     def getdata(self):
         return self.addToCart
 
+
     # def ok(self):
     #     print("Ok")
 
@@ -115,6 +117,8 @@ class MainApp(QMainWindow):
         self.stackedLayout.addWidget(self.login)
         self.stackedLayout.addWidget(self.dashboard)
         self.login.btnLogin.clicked.connect(self.act_login)
+        logout = self.dashboard.findChild(QPushButton, "btnLogout")
+        logout.clicked.connect(self.act_logout)
 
     def mainLayout(self):
         self.widget = QWidget()
@@ -124,6 +128,9 @@ class MainApp(QMainWindow):
 
     def act_login(self):
         self.stackedLayout.setCurrentIndex(1)
+
+    def act_logout(self):
+        self.stackedLayout.setCurrentIndex(0)
 
 
 

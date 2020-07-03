@@ -104,7 +104,7 @@ border-radius:5px;</string>
      <string>Hello, Admin</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btnLogout">
     <property name="geometry">
      <rect>
       <x>704</x>
